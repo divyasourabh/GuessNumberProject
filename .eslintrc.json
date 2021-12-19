@@ -1,0 +1,63 @@
+{
+  "env": {
+  "browser": true,
+  "es6": true,
+  "amd": true,
+  "commonjs": true,
+  "node": true,
+  "jest": true
+  },
+  "extends": "@react-native-community",
+  "globals": {
+  "__CLIENT__": true,
+  "__SERVER__": true,
+  "__DEV__": true,
+  "KJUR": true,
+  "formatAmount": true,
+  "formatString": true,
+  "camelCaseToUnderscore": true,
+  "isEquivalent": true
+  },
+  "parserOptions": {
+  "ecmaFeatures": {
+  "modules": true,
+  "jsx": true,
+  "forOf": true,
+  "blockBindings": true,
+  "arrowFunctions": true,
+  "classes": true,
+  "defaultParams": true,
+  "destructuring": true,
+  "generators": true,
+  "restParams": true,
+  "spread": true,
+  "superInFunctions": true,
+  "templateStrings": true,
+  "experimentalObjectRestSpread": true,
+  "legacyDecorators": true
+  },
+  "ecmaVersion": 2016,
+  "sourceType": "module"
+  },
+  "plugins": ["node", "react", "react-native"],
+  "rules": {
+  "indent": ["off", "tab"],
+  "linebreak-style": ["off", "unix"],
+  "quotes": ["off", "double"],
+  "comma-dangle": ["error", "never"],
+  "curly": ["error", "multi-line"],
+  "semi": ["off", "always"],
+  "no-empty": ["off"],
+  "no-unused-vars": ["off"],
+  "no-undef": ["error"],
+  "no-mixed-spaces-and-tabs": ["off"],
+  "no-case-declarations": ["off"],
+  "no-unreachable": ["warn"],
+  "no-extra-boolean-cast": ["off"],
+  "react/jsx-no-undef": ["error"],
+  "react-native/no-unused-styles": ["warn"],
+  "react-native/no-inline-styles": ["warn"],
+  "react-native/no-color-literals": ["warn"],
+  "react-native/no-raw-text": ["warn"]
+  }
+  }
