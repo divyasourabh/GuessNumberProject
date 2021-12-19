@@ -7,6 +7,7 @@ import {
   Alert,
   ScrollView,
   FlatList,
+  Dimensions,
 } from 'react-native';
 
 import NumberContainer from '../components/NumberContainer';
@@ -113,7 +114,8 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    marginTop: 20,
+    // marginTop: 20,
+    marginTop: Dimensions.get('window').height > 600 ? 30 : 20,
     width: 300,
     maxWidth: '80%',
   },

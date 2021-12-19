@@ -6,20 +6,21 @@ import {
   Button,
   TouchableWithoutFeedback,
   Keyboard,
-  Alert
+  Alert,
+  Dimensions,
 } from 'react-native';
 
 import Card from '../components/Card';
 import Colors from '../constants/colors';
 import Input from '../components/Input';
 import NumberContainer from '../components/NumberContainer';
-import DefaultStyles from '../constants/default-styles'
+import DefaultStyles from '../constants/default-styles';
 import MainButton from '../components/MainButton';
 
 const StartGameScreen = props => {
   const [enteredValue, setEnteredValue] = useState('');
   const [confirmed, setConfirmed] = useState(false);
-  const [selectedNumber, setSelectedNumber] = useState()
+  const [selectedNumber, setSelectedNumber] = useState();
 
   const numberInputHandler = inputText => {
     setEnteredValue(inputText.replace(/[^0-9]/g, ''));
@@ -36,7 +37,7 @@ const StartGameScreen = props => {
       Alert.alert(
         'Invalid number!',
         'Number has to be a number between 1 and 99.',
-        [{ text: 'Okay', style: 'destructive', onPress: resetInputHandler }]
+        [{text: 'Okay', style: 'destructive', onPress: resetInputHandler}],
       );
       return;
     }
@@ -53,7 +54,9 @@ const StartGameScreen = props => {
       <Card style={styles.summaryContainer}>
         <Text>You selected</Text>
         <NumberContainer>{selectedNumber}</NumberContainer>
-        <MainButton onPress={()=>props.onStartGame(selectedNumber)}>START GAME</MainButton>
+        <MainButton onPress={() => props.onStartGame(selectedNumber)}>
+          START GAME
+        </MainButton>
       </Card>
     );
   }
@@ -112,8 +115,10 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   inputContainer: {
-    width: 300,
-    maxWidth: '80%',
+    // width: 300,
+    width: '80%',
+    minWidth: 300,
+    maxWidth: '95%',
     alignItems: 'center',
   },
   buttonContainer: {
@@ -124,7 +129,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
   },
   button: {
-    width: 100,
+    // width: 100,
+    width: Dimensions.get('window').width / 4,
   },
   input: {
     width: 50,
@@ -132,8 +138,8 @@ const styles = StyleSheet.create({
   },
   summaryContainer: {
     marginTop: 20,
-    alignItems: 'center'
-  }
+    alignItems: 'center',
+  },
 });
 
 export default StartGameScreen;
