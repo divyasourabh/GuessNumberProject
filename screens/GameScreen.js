@@ -76,6 +76,12 @@ const GameScreen = props => {
     setPastGuesses(currentGuess => [nextNumber.toString(), ...currentGuess]);
   };
 
+  let listContainerStyle = styles.listContainer;
+
+  if (Dimensions.get(window).width < 350) {
+    listContainerStyle = styles.listContainerBig;
+  }
+
   return (
     <View style={styles.screen}>
       <Text>Opponent's Guess</Text>
@@ -87,7 +93,7 @@ const GameScreen = props => {
           onPress={nextGuessHandler.bind(this, 'greater')}
         />
       </Card>
-      <View style={styles.listContainer}>
+      <View style={styles.listContainerStyle}>
         {/* <ScrollView contentContainerStyle={styles.list}>
           {pastGuesses.map((guess, index) =>
             renderListItem(guess, pastGuesses.length - index),
@@ -120,6 +126,10 @@ const styles = StyleSheet.create({
     maxWidth: '80%',
   },
   listContainer: {
+    flex: 1,
+    width: '60%',
+  },
+  listContainerBig: {
     flex: 1,
     width: '80%',
   },
