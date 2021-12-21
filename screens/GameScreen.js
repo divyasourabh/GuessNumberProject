@@ -25,9 +25,9 @@ const generateRandomBetween = (min, max, exclude) => {
   }
 };
 
-const renderListItem = (listLenghth, itemData) => (
+const renderListItem = (listLength, itemData) => (
   <View style={styles.listItem}>
-    {<BodyText>#{listLenghth - itemData.index}</BodyText>}
+    {<BodyText>#{listLength - itemData.index}</BodyText>}
     <Text>{itemData.item}</Text>
   </View>
 );
@@ -78,7 +78,7 @@ const GameScreen = props => {
 
   let listContainerStyle = styles.listContainer;
 
-  if (Dimensions.get(window).width < 350) {
+  if (Dimensions.get('window').width < 350) {
     listContainerStyle = styles.listContainerBig;
   }
 
